@@ -1,0 +1,21 @@
+import tkinter as tk
+from playsound import playsound
+
+# פונקציה שמנגנת סאונד כאשר לוחצים על כפתור
+def play_drum_sound(drum_type):
+    playsound(f'path/to/{drum_type}_sound.mp3')
+
+# יצירת החלון הראשי
+root = tk.Tk()
+root.title("מכונת תופים")
+
+# רשימה של כלי התופים
+drums = ["snare", "kick", "hihat", "tom1", "tom2", "crash", "ride", "clap"]
+
+# יצירת כפתורים
+for drum in drums:
+    button = tk.Button(root, text=drum.capitalize(), command=lambda drum=drum: play_drum_sound(drum))
+    button.pack(side=tk.LEFT)
+
+# הפעלת הלולאה הראשית של האפליקציה
+root.mainloop()
